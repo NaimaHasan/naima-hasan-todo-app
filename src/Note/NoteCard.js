@@ -12,7 +12,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
   return (
     <div>
       <Card
-        style={{ width: "19rem", position: "relative", paddingLeft: "10px" }}
+        style={{ width: "19rem", position: "relative", paddingLeft: "10px", backgroundColor: "#ecf0f7" }}
       >
         <div
           style={{
