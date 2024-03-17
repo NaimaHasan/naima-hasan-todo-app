@@ -42,7 +42,7 @@ export const FilterBar = () => {
       <div
         style={{
           position: "absolute",
-          right: "160px",
+          right: "140px",
           justifyContent: "center",
           alignItems: "center",
           fontSize: "20px"

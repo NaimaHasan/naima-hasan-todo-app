@@ -37,7 +37,7 @@ export const SideBar = () => {
 
       <div className="horizontalBar" />
       <div className="heading">Sort By</div>
-      <div style={{ paddingLeft: "50px", fontSize: "18px" }}>
+      <div style={{ paddingLeft: "70px", fontSize: "18px" }}>
         <Form.Check
           type="radio"
           id="flexRadioDefault1"
@@ -62,7 +62,7 @@ export const SideBar = () => {
 
       <div className="horizontalBar" />
       <div className="heading">Order</div>
-      <div style={{ paddingLeft: "50px", fontSize: "18px" }}>
+      <div style={{ paddingLeft: "70px", fontSize: "18px" }}>
         <Form.Check
           type="radio"
           id="flexRadioDefault1"

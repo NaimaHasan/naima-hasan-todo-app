@@ -10,9 +10,9 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
   };
   const [isHovered, setIsHovered] = useState(false);
   return (
-    <div>
+    <div style={{paddingBottom: "30px"}}>
       <Card
-        style={{ width: "19rem", position: "relative", paddingLeft: "10px", backgroundColor: "#ecf0f7" }}
+        style={{ width: "19rem", position: "relative", paddingLeft: "10px", backgroundColor: "#ecf0f7"}}
       >
         <div
           style={{
