@@ -20,7 +20,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
           height: "19rem",
           position: "relative",
           paddingLeft: "10px",
-          backgroundColor: "#ecf0f7",
+          backgroundColor: "#f0f7f7",
         }}
       >
         <div
