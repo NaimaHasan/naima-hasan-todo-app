@@ -10,6 +10,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
     "High": "#F07070"
   };
   const [isHovered, setIsHovered] = useState(false);
+  
   return (
     <div style={{paddingBottom: "30px"}}>
       <Card

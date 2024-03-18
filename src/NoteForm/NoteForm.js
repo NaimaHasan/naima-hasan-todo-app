@@ -95,7 +95,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
             resetCounter={resetCounter}
           />
           <Input
-            label={"Details"}
+            label={"Description"}
             fieldName="desc"
             onChangeHandler={onChangeHandler}
             defaultValue={note.desc}

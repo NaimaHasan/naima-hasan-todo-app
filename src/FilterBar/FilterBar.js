@@ -29,7 +29,7 @@ export const FilterBar = ({ addNote }) => {
           <Button
             style={{
               borderRadius: "25px",
-              backgroundColor: option == value ? "#bbb" : "#ddd",
+              backgroundColor: option === value ? "#bbb" : "#ddd",
               color: "#000",
               border: "none",
               padding: "10px 20px",
@@ -55,37 +55,3 @@ export const FilterBar = ({ addNote }) => {
   );
 };
 
-//  <div style={{ display: "flex", alignItems: "center" }}>
-// {filterOptions.map((option, index) => (
-//   <div key={index} style={{paddingRight: "30px", paddingBottom: "30px"}}>
-//     <Button style={{ borderRadius: "20px" }}>
-//       {option}
-//     </Button>
-//   </div>
-// ))}
-// </div>
-
-{
-  /* <ToggleButtonGroup
-  type="checkbox"
-  value={value}
-  onChange={handleChange}
-  style={{ paddingBottom: "20px" }}
->
-  {filterOptions.map((option, index) => (
-    <ToggleButton
-      id={index}
-      value={option}
-      style={{
-        margin: "20px",
-        borderRadius: "20px",
-        backgroundColor: "#ecf0f7",
-        color: "#000000",
-        border: "none",
-      }}
-    >
-      {option}
-    </ToggleButton>
-  ))}
-</ToggleButtonGroup>; */
-}
