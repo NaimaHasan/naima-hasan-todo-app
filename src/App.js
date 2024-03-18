@@ -138,6 +138,9 @@ const mockNotes = [
 
 export const App = () => {
   const [notes, setNotes] = useState(mockNotes);
+  const [filter, setFilter] = useState("Default");
+  const [sorting, setSorting] = useState("Update Date");
+  const [sortOrder, setSortOrder] = useState("Descending");
 
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
@@ -161,13 +164,66 @@ export const App = () => {
       })
     );
   };
+
+  const filteredNotes = notes
+    .filter((note) => {
+      if (filter === "High Priority") {
+        return note.priority === "High";
+      } else if (filter === "Medium Priority") {
+        return note.priority === "Medium";
+      } else if (filter === "Low Priority") {
+        return note.priority === "Low";
+      } else if (filter === "Pending") {
+        return note.status === "Pending";
+      } else if (filter === "In Progress") {
+        return note.status === "In Progress";
+      } else if (filter === "Completed") {
+        return note.status === "Completed";
+      } else {
+        return true;
+      }
+    })
+    .sort((a, b) => {
+      if (sorting === "Priority") {
+        const priorityOrder = { "High": 3, "Medium": 2, "Low": 1 };
+        return sortOrder === "Ascending"
+          ? priorityOrder[a.priority] - priorityOrder[b.priority]
+          : priorityOrder[b.priority] - priorityOrder[a.priority];
+      } else if (sorting === "Creation Date") {
+        return sortOrder === "Ascending"
+          ? a.createdAt.localeCompare(b.createdAt)
+          : b.createdAt.localeCompare(a.createdAt);
+      } else if (sorting === "Update Date") {
+        return sortOrder === "Ascending"
+          ? a.updatedAt.localeCompare(b.updatedAt)
+          : b.updatedAt.localeCompare(a.updatedAt);
+      } else if (sorting === "Name") {
+        return sortOrder === "Ascending"
+          ? a.title.localeCompare(b.title)
+          : b.title.localeCompare(a.title);
+      } else {
+        return sortOrder === "Ascending"
+          ? a.title.localeCompare(b.title)
+          : b.title.localeCompare(a.title);
+      }
+    });
+
   return (
     <div className="container-fluid">
-      <SideBar />
-      <TopBar/>
+      <SideBar
+        sorting={sorting}
+        setSorting={setSorting}
+        sortOrder={sortOrder}
+        setSortOrder={setSortOrder}
+      />
+      <TopBar />
       <div className="main-content">
-        <FilterBar addNote={addNote}/>
-        <Note notes={notes} updateNote={updateNote} deleteNote={deleteNote} />
+        <FilterBar addNote={addNote} filter={filter} setFilter={setFilter} />
+        <Note
+          notes={filteredNotes}
+          updateNote={updateNote}
+          deleteNote={deleteNote}
+        />
       </div>
     </div>
   );

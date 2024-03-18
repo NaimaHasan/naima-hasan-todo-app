@@ -4,7 +4,7 @@ import { Filter } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
 import { NoteForm } from "../NoteForm/NoteForm";
 
-export const FilterBar = ({ addNote }) => {
+export const FilterBar = ({ addNote, filter, setFilter }) => {
   const filterOptions = [
     "High Priority",
     "Medium Priority",
@@ -14,11 +14,7 @@ export const FilterBar = ({ addNote }) => {
     "Completed",
     "Default",
   ];
-  const [value, setValue] = useState("Default");
 
-  const handleChange = (val) => {
-    setValue(val);
-  };
   return (
     <div
       style={{ display: "flex", alignItems: "center", paddingBottom: "30px" }}
@@ -29,12 +25,14 @@ export const FilterBar = ({ addNote }) => {
           <Button
             style={{
               borderRadius: "25px",
-              backgroundColor: option === value ? "#bbb" : "#ddd",
+              backgroundColor: option === filter ? "#bbb" : "#ddd",
               color: "#000",
               border: "none",
               padding: "10px 20px",
             }}
-            onClick={() => setValue(option)}
+            onClick={() => {
+              setFilter(option);
+            }}
           >
             {option}
           </Button>
@@ -46,7 +44,7 @@ export const FilterBar = ({ addNote }) => {
           right: "140px",
           justifyContent: "center",
           alignItems: "center",
-          fontSize: "20px"
+          fontSize: "20px",
         }}
       >
         <NoteForm submitNote={addNote} label={"Add"} />
@@ -54,4 +52,3 @@ export const FilterBar = ({ addNote }) => {
     </div>
   );
 };
-

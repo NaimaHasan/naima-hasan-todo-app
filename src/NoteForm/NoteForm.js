@@ -28,6 +28,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
     );
     setResetCounter(resetCounter + 1);
   };
+  
   const onChangeHandler = (e) => {
     switch (e.target.name) {
       case "title":
@@ -45,12 +46,14 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
       default:
         break;
     }
-    console.log(`name: ${e.target.name} | value: ${e.target.value}`);
   };
 
   const submit = (e) => {
     e.preventDefault();
-    submitNote(note);
+    submitNote({
+      ...note,
+      updatedAt: new Date().toISOString(),
+    });
     reset();
     setShowModal(false);
   };
@@ -59,7 +62,10 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
       {label === "Update" ? (
         <Pencil
           size={20}
-          onClick={() => setShowModal(true)}
+          onClick={() => {
+            setShowModal(true);
+            reset();
+          }}
           className={isHovered ? "icon-hover" : ""}
           style={{ color: isHovered ? "blue" : "inherit" }}
           onMouseEnter={() => setIsHovered(true)}
@@ -114,7 +120,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
             fieldName="status"
             defaultValue={note.status}
             onChange={onChangeHandler}
-            options={["Pending", "InProgress", "Done", "Failed"]}
+            options={["Pending", "InProgress", "Completed"]}
             resetCounter={resetCounter}
           />
 
