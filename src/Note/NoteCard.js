@@ -17,17 +17,18 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
       <Card
         style={{
           width: "19rem",
-          height: "19rem",
+          height: "20rem",
           position: "relative",
-          paddingLeft: "10px",
+          paddingLeft: "20px",
+          paddingTop: "10px",
           backgroundColor: "#f0f7f7",
         }}
       >
         <div
           style={{
             position: "absolute",
-            right: "15px",
-            top: "15px",
+            right: "20px",
+            top: "20px",
             width: "20px",
             height: "20px",
             display: "flex",
@@ -86,7 +87,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
             <div
               style={{
                 position: "absolute",
-                bottom: 10,
+                bottom: 20,
               }}
             >
               <div style={{fontSize:"12px"}}>
@@ -114,8 +115,8 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
           <div
             style={{
               position: "absolute",
-              right: "15px",
-              bottom: "15px",
+              right: "20px",
+              bottom: "20px",
               width: "20px",
               height: "20px",
               display: "flex",
