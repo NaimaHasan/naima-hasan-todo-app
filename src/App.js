@@ -166,7 +166,7 @@ export const App = () => {
       <SideBar />
       <TopBar/>
       <div className="main-content">
-        <FilterBar/>
+        <FilterBar submitNote={addNote}/>
         <Note notes={notes} updateNote={updateNote} deleteNote={deleteNote} />
       </div>
     </div>

@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Filter } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
+import { NoteForm } from "../NoteForm/NoteForm";
 
-export const FilterBar = () => {
+export const FilterBar = ({ addNote }) => {
   const filterOptions = [
     "High Priority",
     "Medium Priority",
@@ -48,7 +49,7 @@ export const FilterBar = () => {
           fontSize: "20px"
         }}
       >
-        + Add Item
+        <NoteForm submitNote={addNote} label={"Add"} />
       </div>
     </div>
   );

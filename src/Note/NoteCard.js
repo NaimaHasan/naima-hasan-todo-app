@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { Trash, Pencil } from "react-bootstrap-icons";
+import { Trash } from "react-bootstrap-icons";
+import { NoteForm } from "../NoteForm/NoteForm";
 
 export const NoteCard = ({ note, updateNote, deleteNote }) => {
   const priorityColors = {
@@ -27,15 +28,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
             cursor: "pointer",
           }}
         >
-          <Pencil
-            color="Black"
-            size={20}
-            onClick={() => updateNote(note.id)}
-            className={isHovered ? "icon-hover" : ""}
-            style={{ color: isHovered ? "blue" : "inherit" }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          />
+          <NoteForm submitNote={updateNote} defaultNote={note} label={"Update"} />
         </div>
         <div
           style={{
