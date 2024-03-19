@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.css";
-import { useState } from "react";
-import { uid } from "uid";
+import { useState, useEffect } from "react";
 import { Note } from "./Note/Note";
 import { SideBar } from "./SideBar/SideBar";
 import "./App.css";
@@ -8,137 +7,17 @@ import { TopBar } from "./TopBar/TopBar";
 import { FilterBar } from "./FilterBar/FilterBar";
 import Toast from "react-bootstrap/Toast";
 
-const mockNotes = [
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "High",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 2",
-    desc: "Note 2 description",
-    priority: "Medium",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 3",
-    desc: "Note 3 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "High",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 2",
-    desc: "Note 2 description",
-    priority: "Medium",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 3",
-    desc: "Note 3 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 2",
-    desc: "Note 2 description",
-    priority: "Medium",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 3",
-    desc: "Note 3 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 1",
-    desc: "Note 1 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 2",
-    desc: "Note 2 description",
-    priority: "Medium",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-  {
-    id: uid(),
-    title: "Note 3",
-    desc: "Note 3 description",
-    priority: "Low",
-    status: "Pending",
-    createdAt: "2024-03-12T05:19:29.533Z",
-    updatedAt: "2024-03-12T05:19:29.533Z",
-  },
-];
+const mockNotes = [];
 
 export const App = () => {
-  const [notes, setNotes] = useState(mockNotes);
+  const [notes, setNotes] = useState(() => {
+    const storedNotes = localStorage.getItem("notes");
+    return storedNotes ? JSON.parse(storedNotes) : mockNotes;
+  });
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
+
   const [filter, setFilter] = useState("Default");
   const [sorting, setSorting] = useState("Creation Date");
   const [sortOrder, setSortOrder] = useState("Descending");
