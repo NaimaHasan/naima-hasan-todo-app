@@ -139,7 +139,7 @@ const mockNotes = [
 export const App = () => {
   const [notes, setNotes] = useState(mockNotes);
   const [filter, setFilter] = useState("Default");
-  const [sorting, setSorting] = useState("Update Date");
+  const [sorting, setSorting] = useState("Creation Date");
   const [sortOrder, setSortOrder] = useState("Descending");
 
   const addNote = (newNote) => {

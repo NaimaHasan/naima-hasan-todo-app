@@ -82,7 +82,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          + Add Note
+        + Add Note
         </button>
       )}
       <FormModal
@@ -120,7 +120,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
             fieldName="status"
             defaultValue={note.status}
             onChange={onChangeHandler}
-            options={["Pending", "InProgress", "Completed"]}
+            options={["Pending", "In Progress", "Completed"]}
             resetCounter={resetCounter}
           />
         </form>
