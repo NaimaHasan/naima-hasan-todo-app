@@ -1,7 +1,7 @@
 import React from "react";
 import "./SideBar.css";
 import { Form } from "react-bootstrap";
-import { useState } from "react";
+
 
 export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
   const priorities = ["High", "Medium", "Low"];

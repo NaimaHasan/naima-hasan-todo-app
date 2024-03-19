@@ -33,7 +33,9 @@ export const FormModal = ({
         </Button>
         <Button
           variant="primary"
-          onClick={submit}
+          onClick={() => {
+            submit();
+          }}
           style={{
             padding: "6px 18px",
             borderRadius: "15px",

@@ -49,7 +49,6 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
   };
 
   const submit = (e) => {
-    e.preventDefault();
     submitNote({
       ...note,
       updatedAt: new Date().toISOString(),
