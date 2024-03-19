@@ -57,21 +57,42 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
           <Card.Title>{note.title}</Card.Title>
 
           <Card.Text>
-            <div style={{paddingBottom: "15px"}}>
-            <Button
-              style={{
-                borderRadius: "25px",
-                backgroundColor: "#fff",
-                color: "#000",
-                border: "none",
-                padding: "5px 10px",
-                fontSize: "12px",
-              }}
-            >
-              Status: {note.status}
-            </Button>
+            <div style={{ paddingBottom: "15px" }}>
+              <Button
+                variant="light"
+                disabled={true}
+                style={{
+                  borderRadius: "25px",
+                  backgroundColor: "#fff",
+                  border: "none",
+                  padding: "5px 10px",
+                  fontSize: "12px",
+                }}
+                // onClick={() => {
+                //   let newStatus;
+                //   switch (note.status) {
+                //     case "Pending":
+                //       newStatus = "In Progress";
+                //       break;
+                //     case "In Progress":
+                //       newStatus = "Completed";
+                //       break;
+                //     case "Completed":
+                //       newStatus = "Pending";
+                //       break;
+                //     default:
+                //       newStatus = "Pending";
+                //   }
+                //   updateNote({
+                //     ...note,
+                //     status: newStatus,
+                //   });
+                // }}
+              >
+                Status: {note.status}
+              </Button>
             </div>
-            
+
             <h6>Description</h6>
             <div
               style={{
@@ -90,7 +111,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
                 bottom: 20,
               }}
             >
-              <div style={{fontSize:"12px"}}>
+              <div style={{ fontSize: "12px" }}>
                 Last Updated:{" "}
                 {new Date(note.updatedAt).toLocaleString("en-US", {
                   month: "short",
@@ -100,7 +121,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
                   hour12: true,
                 })}
               </div>{" "}
-              <div style={{fontSize:"12px"}}>
+              <div style={{ fontSize: "12px" }}>
                 Creation Date:{" "}
                 {new Date(note.createdAt).toLocaleString("en-US", {
                   month: "short",

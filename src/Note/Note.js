@@ -10,6 +10,9 @@ export const Note = ({ notes, updateNote, deleteNote }) => {
             <NoteCard note = {note} updateNote = {updateNote} deleteNote = {deleteNote} />
           </div> 
         ))}
+        {notes.length < 4 && (
+          <div className={`col-sm-${12-notes.length * 3} mb-4`}/>
+        )}
       </div>
     </div>
   );

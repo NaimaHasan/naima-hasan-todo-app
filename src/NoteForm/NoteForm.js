@@ -18,7 +18,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
         ? defaultNote
         : {
             id: uid(),
-            title: "",
+            title: "Default Name",
             desc: "",
             priority: "Low",
             status: "Pending",
@@ -123,16 +123,6 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
             options={["Pending", "InProgress", "Completed"]}
             resetCounter={resetCounter}
           />
-
-          {/* <button onClick={submit}>Submit</button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              reset();
-            }}
-          >
-            Clear
-          </button> */}
         </form>
       </FormModal>
     </React.Fragment>
