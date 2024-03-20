@@ -3,7 +3,7 @@ import { uid } from "uid";
 import { Input } from "./Input";
 import { Select } from "./Select";
 import { FormModal } from "./Modal";
-import { Pencil, PlusCircleFill } from "react-bootstrap-icons";
+import { Pencil } from "react-bootstrap-icons";
 import { useHotkeys } from 'react-hotkeys-hook';
 
 export const NoteForm = ({ submitNote, defaultNote, label }) => {
@@ -73,18 +73,19 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
           onMouseLeave={() => setIsHovered(false)}
         />
       ) : (
-        <PlusCircleFill
-        size={55}
+        <button
           onClick={() => setShowModal(true)}
           style={{
-            color: isHovered ? "#444" : "#aaa",
+            color: isHovered ? "blue" : "inherit",
             border: "None",
             backgroundColor: "transparent",
+            fontSize: "20px"
           }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-        </PlusCircleFill>
+        + Add Note
+        </button>
       )}
       <FormModal
         title={label}

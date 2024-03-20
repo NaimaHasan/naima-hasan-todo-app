@@ -5,7 +5,6 @@ import { SideBar } from "./SideBar/SideBar";
 import "./App.css";
 import { TopBar } from "./TopBar/TopBar";
 import { FilterBar } from "./FilterBar/FilterBar";
-import { NoteForm } from "./NoteForm/NoteForm";
 //import Toast from "react-bootstrap/Toast";
 
 const mockNotes = [];
@@ -121,23 +120,15 @@ export const App = () => {
         setSorting={setSorting}
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
+        addNote={addNote}
       />
       <div className="main-content" style={{paddingLeft: screenWidth > 900 ? "300px" : "0px"}}>
-        <FilterBar addNote={addNote} filter={filter} setFilter={setFilter} />
+        <FilterBar filter={filter} setFilter={setFilter} />
         <Note
           notes={filteredNotes}
           updateNote={updateNote}
           deleteNote={deleteNote}
         />
-      </div>
-      <div
-        style={{
-          position: "fixed",
-          bottom: "60px",
-          right: "100px",
-        }}
-      >
-        <NoteForm submitNote={addNote} label={"Add"} />
       </div>
       {/* <Toast
         onClose={() => setShowToast(false)}

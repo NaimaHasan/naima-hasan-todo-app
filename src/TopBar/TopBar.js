@@ -4,8 +4,9 @@ import { ListTask } from "react-bootstrap-icons";
 import { SideBar } from "../SideBar/SideBar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState, useEffect } from "react";
+import { NoteForm } from "../NoteForm/NoteForm";
 
-export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
+export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder, addNote }) => {
   const [show, setShow] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [isHoveredList, setIsHoveredList] = useState(false);
@@ -57,7 +58,10 @@ export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
           />
         </Offcanvas.Body>
       </Offcanvas>
-      <div style={{ fontSize: "26px", paddingLeft: "30px" }}>To Do List</div>
+      <div style={{ fontSize: "22px", paddingLeft: "30px" }}>To Do List</div>
+      <div style={{ marginLeft: "auto", fontSize: "20px", flex: "0 0 auto", paddingRight:"10px"}}>
+        <NoteForm submitNote={addNote} label={"Add"} />
+      </div>
     </div>
   );
 };

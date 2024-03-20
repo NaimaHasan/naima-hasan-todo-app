@@ -2,7 +2,7 @@ import React from "react";
 import { Filter } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
 
-export const FilterBar = ({ addNote, filter, setFilter }) => {
+export const FilterBar = ({ filter, setFilter }) => {
   const filterOptions = [
     "High Priority",
     "Medium Priority",
