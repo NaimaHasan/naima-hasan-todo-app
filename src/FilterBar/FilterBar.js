@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { Filter } from "react-bootstrap-icons";
 import { Button } from "react-bootstrap";
 import { NoteForm } from "../NoteForm/NoteForm";

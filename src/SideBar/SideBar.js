@@ -18,7 +18,7 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
 
   return (
     <div className="sidebar">
-      <div className="heading"> Priority </div>
+      <div className="heading" style={{paddingTop:"45px"}}> Priority </div>
       {priorities.map((option, index) => (
         <div className="priority-box">
           <div

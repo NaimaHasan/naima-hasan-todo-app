@@ -22,6 +22,19 @@ export const App = () => {
   const [sorting, setSorting] = useState("Creation Date");
   const [sortOrder, setSortOrder] = useState("Descending");
   const [showToast, setShowToast] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const addNote = (newNote) => {
     setNotes([...notes, newNote]);
@@ -66,7 +79,7 @@ export const App = () => {
     })
     .sort((a, b) => {
       if (sorting === "Priority") {
-        const priorityOrder = { "High": 3, "Medium": 2, "Low": 1 };
+        const priorityOrder = { High: 3, Medium: 2, Low: 1 };
         return sortOrder === "Ascending"
           ? priorityOrder[a.priority] - priorityOrder[b.priority]
           : priorityOrder[b.priority] - priorityOrder[a.priority];
@@ -91,14 +104,24 @@ export const App = () => {
 
   return (
     <div className="container-fluid">
-      <SideBar
+      {screenWidth > 900 ? (
+        <SideBar
+          sorting={sorting}
+          setSorting={setSorting}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+        />
+      ) : (
+        <div />
+      )}
+
+      <TopBar
         sorting={sorting}
         setSorting={setSorting}
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
       />
-      <TopBar />
-      <div className="main-content">
+      <div className="main-content" style={{paddingLeft: screenWidth > 900 ? "300px" : "0px"}}>
         <FilterBar addNote={addNote} filter={filter} setFilter={setFilter} />
         <Note
           notes={filteredNotes}
@@ -115,12 +138,11 @@ export const App = () => {
           position: "absolute",
           top: 20,
           right: 20,
-          minWidth: "300px"
+          minWidth: "300px",
         }}
       >
         <Toast.Body>Your changes have been saved.</Toast.Body>
       </Toast>
-      
     </div>
   );
 };
