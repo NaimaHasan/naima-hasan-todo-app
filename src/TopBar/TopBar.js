@@ -79,19 +79,6 @@ export const TopBar = ({
       <div
         style={{
           marginLeft: "auto",
-          flex: "0 0 auto",
-          paddingRight: "10px",
-        }}
-      >
-        <Form>
-          <Form.Group className="mb-3">
-            <Form.Control type="email" placeholder="Search" />
-          </Form.Group>
-        </Form>
-      </div>
-      <div
-        style={{
-          marginLeft: "auto",
           fontSize: "20px",
           flex: "0 0 auto",
           paddingRight: "10px",
