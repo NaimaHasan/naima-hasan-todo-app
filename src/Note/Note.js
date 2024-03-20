@@ -11,10 +11,10 @@ export const Note = ({ notes, updateNote, deleteNote }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "70vh",
+            height: "50vh",
           }}
         >
-          <p>Note is currently empty!</p>
+          <p>There is no note to display!</p>
         </div>
       ) : (
         <div className="row">
