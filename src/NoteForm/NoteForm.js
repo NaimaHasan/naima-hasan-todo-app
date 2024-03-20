@@ -4,7 +4,6 @@ import { Input } from "./Input";
 import { Select } from "./Select";
 import { FormModal } from "./Modal";
 import { Pencil } from "react-bootstrap-icons";
-import { useHotkeys } from 'react-hotkeys-hook';
 
 export const NoteForm = ({ submitNote, defaultNote, label }) => {
   const [note, setNote] = useState({});

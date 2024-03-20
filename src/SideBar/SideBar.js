@@ -17,7 +17,7 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
 
   return (
     <div className="sidebar">
-      <div className="heading" style={{ paddingTop: "45px" }}>
+      <div className="heading" style={{ paddingTop: "60px" }}>
         {" "}
         Priority{" "}
       </div>

@@ -19,7 +19,7 @@ export const Note = ({ notes, updateNote, deleteNote }) => {
       ) : (
         <div className="row">
           {notes.map((note, index) => (
-            <div key={index} className="col mb-4">
+            <div key={index} className="col mb-4 d-flex justify-content-center">
               <NoteCard
                 note={note}
                 updateNote={updateNote}

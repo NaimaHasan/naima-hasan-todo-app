@@ -14,7 +14,6 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
   const [isHoveredStatus, setIsHoveredStatus] = useState(false);
 
   return (
-    <div style={{ paddingBottom: "30px" }}>
       <Card
         style={{
           width: "19rem",
@@ -22,6 +21,7 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
           position: "relative",
           paddingLeft: "20px",
           paddingTop: "10px",
+          marginBottom: "30px",
           backgroundColor: "#f0f7f7",
         }}
       >
@@ -161,6 +161,5 @@ export const NoteCard = ({ note, updateNote, deleteNote }) => {
           </div>
         </Card.Body>
       </Card>
-    </div>
   );
 };

@@ -5,8 +5,15 @@ import { SideBar } from "../SideBar/SideBar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState, useEffect } from "react";
 import { NoteForm } from "../NoteForm/NoteForm";
+import Form from "react-bootstrap/Form";
 
-export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder, addNote }) => {
+export const TopBar = ({
+  sorting,
+  setSorting,
+  sortOrder,
+  setSortOrder,
+  addNote,
+}) => {
   const [show, setShow] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [isHoveredList, setIsHoveredList] = useState(false);
@@ -30,11 +37,21 @@ export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder, addNote }
       {screenWidth > 900 ? (
         <></>
       ) : (
-        <ListTask size={35} onClick={handleShow}  className={isHoveredList ? "icon-hover" : ""}
-        onMouseEnter={() => setIsHoveredList(true)}
-        onMouseLeave={() => setIsHoveredList(false)} style={{color: isHoveredList ? "#777" : "inherit",}}/>
+        <ListTask
+          size={35}
+          onClick={handleShow}
+          className={isHoveredList ? "icon-hover" : ""}
+          onMouseEnter={() => setIsHoveredList(true)}
+          onMouseLeave={() => setIsHoveredList(false)}
+          style={{ color: isHoveredList ? "#777" : "inherit" }}
+        />
       )}
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "300px" }} backdrop={false}>
+      <Offcanvas
+        show={show}
+        onHide={handleClose}
+        style={{ width: "300px" }}
+        backdrop={false}
+      >
         <div className="sidetopbar">
           <Offcanvas.Header closeButton>
             <div
@@ -59,7 +76,27 @@ export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder, addNote }
         </Offcanvas.Body>
       </Offcanvas>
       <div style={{ fontSize: "22px", paddingLeft: "30px" }}>To Do List</div>
-      <div style={{ marginLeft: "auto", fontSize: "20px", flex: "0 0 auto", paddingRight:"10px"}}>
+      <div
+        style={{
+          marginLeft: "auto",
+          flex: "0 0 auto",
+          paddingRight: "10px",
+        }}
+      >
+        <Form>
+          <Form.Group className="mb-3">
+            <Form.Control type="email" placeholder="Search" />
+          </Form.Group>
+        </Form>
+      </div>
+      <div
+        style={{
+          marginLeft: "auto",
+          fontSize: "20px",
+          flex: "0 0 auto",
+          paddingRight: "10px",
+        }}
+      >
         <NoteForm submitNote={addNote} label={"Add"} />
       </div>
     </div>
