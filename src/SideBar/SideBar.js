@@ -2,7 +2,6 @@ import React from "react";
 import "./SideBar.css";
 import { Form } from "react-bootstrap";
 
-
 export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
   const priorities = ["High", "Medium", "Low"];
 
@@ -18,7 +17,10 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
 
   return (
     <div className="sidebar">
-      <div className="heading" style={{paddingTop:"45px"}}> Priority </div>
+      <div className="heading" style={{ paddingTop: "45px" }}>
+        {" "}
+        Priority{" "}
+      </div>
       {priorities.map((option, index) => (
         <div className="priority-box">
           <div
@@ -37,8 +39,9 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
             type="radio"
             id={"flexRadioDefault_" + index}
             label={option}
-            style={{ marginBottom: "10px" }}
+            style={{ marginBottom: "10px"}}
             checked={sorting === option}
+            color="black"
             onClick={() => {
               setSorting(option);
             }}

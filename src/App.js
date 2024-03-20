@@ -5,7 +5,7 @@ import { SideBar } from "./SideBar/SideBar";
 import "./App.css";
 import { TopBar } from "./TopBar/TopBar";
 import { FilterBar } from "./FilterBar/FilterBar";
-import Toast from "react-bootstrap/Toast";
+//import Toast from "react-bootstrap/Toast";
 
 const mockNotes = [];
 
@@ -21,7 +21,7 @@ export const App = () => {
   const [filter, setFilter] = useState("Default");
   const [sorting, setSorting] = useState("Creation Date");
   const [sortOrder, setSortOrder] = useState("Descending");
-  const [showToast, setShowToast] = useState(false);
+  //const [showToast, setShowToast] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export const App = () => {
           deleteNote={deleteNote}
         />
       </div>
-      <Toast
+      {/* <Toast
         onClose={() => setShowToast(false)}
         show={showToast}
         delay={2000}
@@ -142,7 +142,7 @@ export const App = () => {
         }}
       >
         <Toast.Body>Your changes have been saved.</Toast.Body>
-      </Toast>
+      </Toast> */}
     </div>
   );
 };
