@@ -27,9 +27,8 @@ export const Note = ({ notes, updateNote, deleteNote }) => {
               />
             </div>
           ))}
-          {notes.length < 4 && (
-            <div className={`col-${12 - notes.length * 3} mb-4`} />
-          )}
+
+          <div className={`col-${12 - (notes.length % 4) * 3} mb-4`} />
         </div>
       )}
     </div>
