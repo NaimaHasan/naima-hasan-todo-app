@@ -33,13 +33,13 @@ export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
         onMouseEnter={() => setIsHoveredList(true)}
         onMouseLeave={() => setIsHoveredList(false)} style={{color: isHoveredList ? "#777" : "inherit",}}/>
       )}
-      <Offcanvas show={show} onHide={handleClose} style={{ width: "300px" }}>
+      <Offcanvas show={show} onHide={handleClose} style={{ width: "300px" }} backdrop={false}>
         <div className="sidetopbar">
           <Offcanvas.Header closeButton>
             <div
               style={{
                 fontSize: "26px",
-                paddingLeft: "10px",
+                paddingLeft: "5px",
                 paddingRight: "55px",
               }}
             >
