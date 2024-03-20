@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
   const [show, setShow] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isHoveredList, setIsHoveredList] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,7 +29,9 @@ export const TopBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
       {screenWidth > 900 ? (
         <></>
       ) : (
-        <ListTask color="Black" size={35} onClick={handleShow} />
+        <ListTask size={35} onClick={handleShow}  className={isHoveredList ? "icon-hover" : ""}
+        onMouseEnter={() => setIsHoveredList(true)}
+        onMouseLeave={() => setIsHoveredList(false)} style={{color: isHoveredList ? "#777" : "inherit",}}/>
       )}
       <Offcanvas show={show} onHide={handleClose} style={{ width: "300px" }}>
         <div className="sidetopbar">
