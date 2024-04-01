@@ -5,7 +5,6 @@ import { SideBar } from "../SideBar/SideBar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useState, useEffect } from "react";
 import { NoteForm } from "../NoteForm/NoteForm";
-import Form from "react-bootstrap/Form";
 
 export const TopBar = ({
   sorting,
@@ -16,7 +15,6 @@ export const TopBar = ({
 }) => {
   const [show, setShow] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [isHoveredList, setIsHoveredList] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,32 +35,17 @@ export const TopBar = ({
       {screenWidth > 900 ? (
         <></>
       ) : (
-        <ListTask
-          size={35}
-          onClick={handleShow}
-          className={isHoveredList ? "icon-hover" : ""}
-          onMouseEnter={() => setIsHoveredList(true)}
-          onMouseLeave={() => setIsHoveredList(false)}
-          style={{ color: isHoveredList ? "#777" : "inherit" }}
-        />
+        <ListTask onClick={handleShow} className="list-task-icon" />
       )}
       <Offcanvas
         show={show}
         onHide={handleClose}
-        style={{ width: "300px" }}
+        style={{ width: "250px" }}
         backdrop={false}
       >
         <div className="sidetopbar">
           <Offcanvas.Header closeButton>
-            <div
-              style={{
-                fontSize: "26px",
-                paddingLeft: "5px",
-                paddingRight: "55px",
-              }}
-            >
-              To Do List
-            </div>
+            <div className="offcanvas-to-do-heading">To Do List</div>
           </Offcanvas.Header>
         </div>
 
@@ -75,15 +58,8 @@ export const TopBar = ({
           />
         </Offcanvas.Body>
       </Offcanvas>
-      <div style={{ fontSize: "22px", paddingLeft: "30px" }}>To Do List</div>
-      <div
-        style={{
-          marginLeft: "auto",
-          fontSize: "20px",
-          flex: "0 0 auto",
-          paddingRight: "10px",
-        }}
-      >
+      <div className="to-do-heading">To Do List</div>
+      <div className="add-note-container">
         <NoteForm submitNote={addNote} label={"Add"} />
       </div>
     </div>

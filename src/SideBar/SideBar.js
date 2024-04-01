@@ -37,6 +37,7 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
         {sortingOptions.map((option, index) => (
           <Form.Check
             type="radio"
+            className="text"
             id={"flexRadioDefault_" + index}
             label={option}
             style={{ marginBottom: "10px"}}
@@ -55,6 +56,7 @@ export const SideBar = ({ sorting, setSorting, sortOrder, setSortOrder }) => {
         {sortingOrder.map((option, index) => (
           <Form.Check
             type="radio"
+            className="text"
             id={"flexRadioDefault2_" + index}
             label={option}
             style={{ marginBottom: "10px" }}

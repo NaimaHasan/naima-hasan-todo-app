@@ -4,6 +4,7 @@ import { Input } from "./Input";
 import { Select } from "./Select";
 import { FormModal } from "./Modal";
 import { Pencil } from "react-bootstrap-icons";
+import "./NoteForm.css"
 
 export const NoteForm = ({ submitNote, defaultNote, label }) => {
   const [note, setNote] = useState({});
@@ -28,7 +29,7 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
     );
     setResetCounter(resetCounter + 1);
   };
-  
+
   const onChangeHandler = (e) => {
     switch (e.target.name) {
       case "title":
@@ -76,14 +77,12 @@ export const NoteForm = ({ submitNote, defaultNote, label }) => {
           onClick={() => setShowModal(true)}
           style={{
             color: isHovered ? "blue" : "inherit",
-            border: "None",
-            backgroundColor: "transparent",
-            fontSize: "20px"
           }}
+          className="add-note"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-        + Add Note
+          + Add Note
         </button>
       )}
       <FormModal

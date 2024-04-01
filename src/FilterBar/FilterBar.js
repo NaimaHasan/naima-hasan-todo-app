@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import "./FilterBar.css";
 
 export const FilterBar = ({ filter, setFilter }) => {
   const filterOptions = [
@@ -17,17 +18,27 @@ export const FilterBar = ({ filter, setFilter }) => {
       style={{ display: "flex", alignItems: "center", paddingBottom: "30px" }}
     >
       <div style={{ flex: "1" }}>
-      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {filterOptions.map((option, index) => (
-            <div key={index} style={{ paddingRight: "25px", paddingBottom: "10px", flex: "0 0 auto" }}>
+            <div
+              key={index}
+              style={{
+                paddingRight: "25px",
+                paddingBottom: "10px",
+                flex: "0 0 auto",
+              }}
+            >
               <Button
+                className="filter-button"
                 style={{
-                  fontSize: "16px",
-                  borderRadius: "25px",
                   backgroundColor: option === filter ? "#bbb" : "#ddd",
-                  color: "#000",
-                  border: "none",
-                  padding: "10px 20px",
                 }}
                 onClick={() => {
                   setFilter(option);

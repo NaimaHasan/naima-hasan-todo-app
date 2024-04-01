@@ -1,0 +1,15 @@
+.filter-button {
+    font-size: 15px;
+    border-radius: 25px;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+}
+
+@media (max-width: 767px) {
+    .filter-button {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+}
