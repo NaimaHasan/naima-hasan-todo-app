@@ -35,17 +35,17 @@ export const FilterBar = ({ filter, setFilter }) => {
                 flex: "0 0 auto",
               }}
             >
-              <Button
+              <div
                 className="filter-button"
                 style={{
-                  backgroundColor: option === filter ? "#bbb" : "#ddd",
+                  backgroundColor: option === filter ? "#ccc" : "#ecf0f7",
                 }}
                 onClick={() => {
                   setFilter(option);
                 }}
               >
                 {option}
-              </Button>
+              </div>
             </div>
           ))}
         </div>
